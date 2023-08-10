@@ -11,21 +11,21 @@ const BASE_URL_NEARBY_SEARCH =
 //to get open now places use open
 const url = `${BASE_URL_NEARBY_SEARCH}location=${process.env.MY_LATITUDE},${process.env.MY_LOGITUTE}&radius=50000&key=${process.env.GOOGLE_API_KEY}`
 
-// axios({ method: "get", url: url })
-//   .then((res) => {
-//     res.data.results.map((place) => {
-//       console.log("name ", place.name)
-//       console.log("id ", place.place_id)
-//       if (place.photos) {
-//         place.photos.map((pic) => console.log(pic))
-//       }
-//       console.log("Geometry ", place.geometry)
-//       console.log("\n==============================")
-//     })
-//   })
-//   .catch((er) => {
-//     console.log(er)
-//   })
+axios({ method: "get", url: url })
+  .then((res) => {
+    res.data.results.map((place) => {
+      console.log("name ", place.name)
+      console.log("id ", place.place_id)
+      if (place.photos) {
+        place.photos.map((pic) => console.log(pic))
+      }
+      console.log("Geometry ", place.geometry)
+      console.log("\n==============================")
+    })
+  })
+  .catch((er) => {
+    console.log(er)
+  })
 
 //get place details api
 const PLACE_DETAILS_BASE_URL =
